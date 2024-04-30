@@ -154,7 +154,120 @@
 
 ## del and List Methods
 
+- The ```del``` operator removes items from lists
+
+    - Example
+
+        ```python
+        planets = ['pluto', 'mars', 'earth', 'venus']
+        print(planets) # prints ['pluto', 'mars', 'earth', 'venus']
+        del planets[0]
+        print(planets) # prints ['mars', 'earth', 'venus']
+        ```
+
+- The ```.remove()``` method is a list method that takes an argument and removes the first item matching the argument from the list, or it throws an error if the item cannot be found
+
+    - Example
+
+        ```python
+        planets = ['pluto', 'mars', 'earth', 'earth', 'venus']
+        print(planets) # prints ['pluto', 'mars', 'earth', 'venus']
+        planets.remove('earth')
+        print(planets) # prints ['pluto', 'mars', 'earth', 'venus']
+        ```
+
+- The ```.append()``` method is a list method that takes an argument and appends that argument as an item onto the end of the list
+
+    - Example
+
+        ```python
+        planets = ['pluto', 'mars', 'earth']
+        print(planets) # prints ['pluto', 'mars', 'earth']
+        planets.append('neptune')
+        print(planets) # prints ['pluto', 'mars', 'earth', 'neptune']
+        ```
+
+- The ```.insert()``` method is a list method that takes two arguments and adds an item to a list, where the first argument is the index where the item should be added and the second argument is the item to be added to the list 
+
+    - Example
+
+        ```python
+        planets = ['pluto', 'mars', 'earth']
+        print(planets) # prints ['pluto', 'mars', 'earth']
+        planets.insert(1, 'mercury')
+        print(planets) # prints ['pluto', 'mercury', 'mars', 'earth']
+        ```
+
+- The ```.sort()``` method is a list method that can sort lists made entirely of numbers or lists made entirely of strings
+
+    - By default, numbers are sorted least to greatest and strings are sorted in alphabetical (ascii) order, but this can be reversed by using the ```reverse=True``` keyword parameter parameter
+
+    - Example
+
+        ```python
+        num_list = [9, -8, 50, 2.555]
+        print(num_list) # prints [9, -8, 50, 2.555]
+        num_list.sort()
+        print(num_list) # prints [-8, 2.555, 9, 50]
+        num_list.sort(reverse=True)
+        print(num_list) # prints [-8, 2.555, 9, 50]
+
+        str_list = ['Ringo', 'John', 'George', 'Paul']
+        print(str_list) # prints ['Ringo', 'John', 'George', 'Paul']
+        str_list.sort()
+        print(str_list) # prints ['George', 'John', 'Paul', 'Ringo']
+        str_list.sort(reverse=True)
+        print(str_list) # prints ['George', 'John', 'Paul', 'Ringo']
+        ```
+
+- The ```.index()``` method is a list method that attempts to find the first index number matching a given argument
+
+    - Example
+
+        ```python
+        metals = ['copper', 'gold', 'silver', 'silver', 'iron']
+        print(metals.index('silver')) # prints 2
+        print(metals.index('tin')) # ValueError: 'tin' is not in list
+        ```
+
+- The ```.pop()``` method is a list method that removes the last item from a list and returns it
+
+    - An optional index argument can be used to remove from alternative position in the list instead of the end of the list
+
+    - Example
+
+        ```python
+        fruit = ['apple', 'orange', 'pear', 'banana']
+        print(fruit) # prints ['apple', 'orange', 'pear', 'banana']
+        last_item = fruit.pop()
+        print(fruit) # prints ['apple', 'orange', 'pear']
+        print(last_item) # prints banana
+        index_one_item = fruit.pop(1)
+        print(fruit) # prints ['apple', 'pear']
+        print(index_one_item) # prints orange
+        ```
+
 ## del and List Methods Exercises
+
+- Do all of this in a .py file in Pycharm.
+
+    1. Create a variable called arctic_animals and assign it the list ["penguin", "elephant", "polar bear", "walrus", "tiger", "reindeer"]
+
+    2. Use del to remove "tiger" from the list assigned to arctic_animals.
+
+    3. Use the .remove() method to remove the string "elephant" from the list assigned to arctic_animals.
+
+    4. Use the .append() method to add the string "arctic fox" to the list arctic_animals.
+
+    5. Use .insert() to insert the string "snowy owl" between the strings "polar bear" and "walrus" inside of arctic_animals.
+
+    6. Use the .sort() method to rearrange the strings in arctic_animals into alphabetical order.
+
+    7. Use print() to display the list assigned to arctic_animals
+
+    8. Use .index() to get the index number of "reindeer" from arctic_animals then print it.
+
+    9. Use .pop() to get the last item from the list arctic_animals then print it.
 
 ## del and List Methods Exercises Solutions
 
@@ -162,3 +275,66 @@
 
 ## Lists vs Strings
 
+- Both lists and strings are iterable
+
+- Lists are mutable
+
+- Strings are immutable
+
+- Immutable data types are copied by value
+
+    - ```int```
+
+    - ```float```
+
+    - ```complex```
+
+    - ```str```
+
+    - ```tuple```
+
+    - ```bytes```
+
+    - ```bool```
+
+    - ```frozenset```
+
+- Mutable data types are copied by reference
+
+    - ```list```
+
+    - ```dict```
+
+    - ```set```
+
+    - ```bytearray```
+
+- The ```deepcopy()``` function makes a copy of a list, allowing you to assign that identical copy to a new variable instead of simply referencing the old list
+
+    - Example
+
+        ```python
+        from copy import deepcopy
+        ex_1 = [5,4,3,2]
+        ex_2 = ex_1
+        ex_1.pop()
+        print(ex_1) # prints [5,4,3]
+        print(ex_2) # prints [5,4,3]
+        ex_2 = deepcopy(ex_1)
+        ex_1.pop()
+        print(ex_1) # prints [5,4]
+        print(ex_2) # prints [5,4,3]
+        ```
+
+- The line continuation character ```\``` (backslash) is used to continue an expression on a new line
+
+    - Example
+
+        ```python
+        t_1 = 1 + 2 \
+            + 3 + 4
+        print(t_1) # prints 10
+        s_1 = "hi my \
+        name is bob"
+        print(s_1) # prints hi my name is bob
+        ```
