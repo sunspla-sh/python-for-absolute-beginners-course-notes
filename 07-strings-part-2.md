@@ -236,21 +236,121 @@
 
 ## String Methods 2
 
-- The ```.rjust()``` method
+- The ```.rjust()``` method is a string method that adds space characters (or a different character of your choice) to the left side of a string
 
-- The ```.ljust()``` method
+    - With one parameter, ```.rjust(length)``` adds additional space characters to the left side of the string so that the total string length equals the ```length``` parameter
 
-- The ```.center()``` method
+    - With two parameters, ```.rjust(length, char)``` adds additional characters of your choice to the left side of the string so that the total string length equals the ```length``` parameter
 
-- The ```.strip()``` method
+    - Example
 
-- The ```.rstrip()``` method
+        ```python
+        print("hello world".rjust(15)) # prints "    hello world"
+        print("hello world".rjust(15, '*')) # prints "****hello world"
+        ```
 
-- The ```.lstrip()``` method
+- The ```.ljust()``` method is a string method that adds space characters (or a different character of your choice) to the right side of a string
 
-- The ```.replace()``` method
+    - With one parameter, ```.ljust(length)``` adds additional space characters to the right side of the string so that the total string length equals the ```length``` parameter
+
+    - With two parameters, ```.ljust(length, char)``` adds additional characters of your choice to the right side of the string so that the total string length equals the ```length``` parameter
+
+    - Example
+
+        ```python
+        print("hello world".ljust(15)) # prints "hello world    "
+        print("hello world".ljust(15, '*')) # prints "hello world****"
+        ```
+
+- The ```.center()``` method is a string method that adds space characters (or a different character of your choice) to both sides of a string
+
+    - With one parameter, ```.center(length)``` adds additional space characters to both sides of the string so that the total string length equals the ```length``` parameter
+
+    - With two parameters, ```.center(length, char)``` adds additional characters of your choice to both sides of the string so that the total string length equals the ```length``` parameter
+
+    - Example
+
+        ```python
+        print("hello world".center(15)) # prints "  hello world  "
+        print("hello world".center(15, '*')) # prints "**hello world**"
+        print("hello world".center(16, '*')) # prints "**hello world***"
+        print("hello world".center(17, '*')) # prints "***hello world***"
+        ```
+
+- The ```.strip()``` method is a string method that removes all whitespace characters (or different characters of your choice) from both sides of a string
+
+    - Note that the removal characters will attempt to be removed in any order, one or more times
+
+    - Example
+
+        ```python
+        print("  hi  ".strip()) # prints hi
+        print("**hi**".strip()) # prints **hi**
+        print("**hi**".strip('*')) # prints hi
+        print("blueblueyellowblue".strip('blue'))
+        print("blueblueyellowblue".strip('lbeu'))
+        ```
+
+- The ```.rstrip()``` method is a string method that removes all whitespace characters (or different characters of your choice) from the right side of a string
+
+    - Note that the removal characters will attempt to be removed in any order, one or more times
+
+    - Example
+
+        ```python
+        print("  hi  ".rstrip()) # prints   hi  
+        print("**hi**".rstrip()) # prints **hi**
+        print("**hi**".rstrip('*')) # prints **hi
+        print("hello world".rstrip(" world")) # prints he
+        print("hello world".rstrip("rw lod")) # prints he
+        ```
+
+- The ```.lstrip()``` method is a string method that removes all whitespace characters (or different characters of your choice) from the left side of a string
+
+    - Note that the removal characters will attempt to be removed in any order, one or more times
+
+    - Example
+
+        ```python
+        print("  hi  ".lstrip()) # prints hi  
+        print("**hi**".lstrip()) # prints **hi**
+        print("**hi**".lstrip('*')) # prints hi**
+        print("hello world".lstrip("hello ")) # prints world
+        print("hello world".lstrip("helo ")) # prints world
+        print("hello world".lstrip("lo he")) # prints world
+        ```
+
+- The ```.replace()``` method is a string method that will search for and replace a given substring with another string
+
+    - Example
+
+        ```python
+        print("hello world".replace("world", "dolly")) # prints hello dolly
+        print("hello world".replace("llo", "y")) # prints hey world
+        print("hello world".replace("ll", "")) # prints heo world
+        ```
 
 ## String Methods 2 Exercises
+
+- Do all of this in a .py file:
+
+    1. Create a variable called the_string and assign it the string "North Dakota".
+
+    2. Call .rjust() on the_string with 17 as its argument and print() the result.
+
+    3. Call .ljust() on the_string with the arguments 17 and "*" then print() the result.
+
+    4. Create a variable called center_plus and assign it the result of .center() being called on the_string with 16 and "+" as arguments.
+
+    5. Use print() to display the string assigned to center_plus.
+
+    6. Call .lstrip() on the_string to remove "North" then print() the result.
+
+    7. Call .rstrip() on center_plus with "+" as its argument and print() the result.
+
+    8. Call .strip() on center_plus with "+" as its argument and print() the result.
+
+    9. Call .replace() on the_string and replace "North" with "South".  print() the result.
 
 ## String Methods 2 Exercises Solutions
 
@@ -258,9 +358,27 @@
 
 ## len()
 
-- The ```.len()``` method
+- The ```len()``` function returns the length of an iterable data type as an integer
+
+    - In the case of a string, the length is the number of characters that the string contains (including all special characters, escape sequences, etc.)
+
+    - Example
+
+        ```python
+        print(len(" asdf")) # prints 5
+        print(len(" asdf\n")) # prints 6
+        print(len(" asdf\n...")) # prints 9
+        ```
 
 ## Programming Challenge: String Reverser
+
+- For this challenge, you will be writing a program which uses a for loop to reverse a string. 
+
+    1. Start by creating a variable and assigning it a string as user input using input().
+
+    2. Use a for loop to reverse the string.  You will need to use range with all 3 inputs for this.  In addition, you should create a variable before the for loop and assign it an empty string.  The variable will be reassigned multiple times within the for loop and end up holding the new reversed string.
+
+    3. Print the reversed string at the bottom of your program.
 
 ## Programming Challenge: String Reverser Solution
 
@@ -268,10 +386,68 @@
 
 ## Programming Challenge: Word Counter
 
+- For this programming challenge, write a function in a .py file which takes 1 string as an argument, finds out the number of words in that string, then returns that number. 
+
+- For example, if the program was used on the string "This is a string.", then the function would return 4. 
+
+- Assumptions:
+
+    - Assume that the string will be assigned to a variable and that it will contain at least 1 word.
+
+    - Assume that there will never be 2 or more consecutive spaces in a row within the string.
+
+    - Contractions and possessive words with an apostrophe like "it's" or "Brian's" count as 1 word.
+
+    - Hyphenated words like "ice-cream" count as 1 word.
+
+    - Numbers in the string such as the "007" in "James Bond is 007." count as words
+
+    - There will be no double quotes "" within in the string.
+
+- Hints for this problem:
+
+    - Use string methods to filter out characters besides numbers, letters, spaces, apostrophes, and hyphens.
+
+    - Count the number of spaces in the filtered string and add 1 to that since the string will always contain at least 1 word.  This will give you the number of words it contains.
+
+- You should test your program with many different strings. 
+
+- However, the strings that the solution code is being used on are the 3 strings below.
+
+    ```python
+    str_1 = "James Bond is 007."
+    str_2 = "When the moon hits your eye like a big pizza pie, that's amore!"
+    str_3 = "Anyway, like I was sayin', shrimp is the fruit of the sea. You can barbecue it, boil it, broil it, bake it, \
+    saute it. Dey's uh, shrimp-kabobs, shrimp creole, shrimp gumbo. Pan fried, deep fried, stir-fried. There's pineapple \
+    shrimp, lemon shrimp, coconut shrimp, pepper shrimp, shrimp soup, shrimp stew, shrimp salad, shrimp and potatoes, \
+    shrimp burger, shrimp sandwich. That- that's about it."
+    ```
+
+- So, for your final solution, copy the above into your .py file and print() 3 calls of your function, once for each of the 3 variables above.
+
 ## Programming Challenge: Word Counter Solution
 
 - See solutions in [07-word-counter.py](./python-projects/07-word-counter.py)
 
 ## format()
 
-- The ```.format()``` method
+- The ```.format()``` method is a string method for formatting strings using [format string syntax](https://docs.python.org/3/library/string.html#formatstrings)
+
+    - Example
+
+        ```python
+        name = input("What is the applicant's name?\n")
+        degree = input("What is the applicant's degree?\n")
+        job = input("What is the applicant's current job?\n")
+        experience = input("How many years has the applicant been working?\n")
+
+        template_string = "{} majored in {}, works as a {}, \
+        and has {} years of experience"
+
+        formatted_string = template_string.format(
+          name,
+          degree,
+          job,
+          experience
+        )
+        ```
