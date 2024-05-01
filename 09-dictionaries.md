@@ -371,7 +371,29 @@
     - Example
 
         ```python
+        fruit = {
+          'apple': 5,
+          'orange': 0,
+          'pear': 2
+        }
 
+        recent_purchase = {
+          'peach': 1
+        }
+
+        fruit.update(recent_purchase)
+
+        print(recent_purchase) # prints {'peach': 1}
+        print(fruit) # prints {'apple': 5, 'orange': 0, 'pear': 2, 'peach': 1}
+
+        more_apples = {
+          'apple': 9
+        }
+
+        fruit.update(more_apples)
+
+        print(more_apples) # prints {'apple': 9}
+        print(fruit) # prints {'apple': 9, 'orange': 0, 'pear': 2, 'peach': 1}
         ```
 
 ## Dictionary Methods 3 Exercises
@@ -401,4 +423,44 @@
 
 ## Dictionary Methods 4
 
+- The ```.setdefault()``` method is a dictionary method that adds keys with default values to a dictionary if they do not already exist
+
+    - Note that if the key already exists, it will NOT be changed
+
+    - Example
+
+        ```python
+        computers = {
+          "Google": "ChromeBook",
+          "Apple": "MacBook",
+          "Microsoft": "Surface Pro"
+        }
+
+        print(computers.setdefault("Apple", "Macintosh")) # returns MacBook because key Apple already exists
+
+        print(computers) # prints {'Google': 'ChromeBook', 'Apple': 'MacBook', 'Microsoft': 'Surface Pro'}
+
+        print(computers.setdefault("Lenovo", "ThinkPad")) # returns ThinkPad because key Lenovo did NOT previously exist
+        
+        print(computers) # prints {'Google': 'ChromeBook', 'Apple': 'MacBook', 'Microsoft': 'Surface Pro', 'Lenovo': 'ThinkPad'}
+        ```
+
 ## dict()
+
+- The ```dict()``` function can create a new dictionary from keyword arguments or from a positional argument of an iterable containing other iterables of exactly two objects each
+
+    - Example
+
+        ```python
+        empty = dict()
+
+        print(empty) # prints {}
+
+        with_values_keyword_args = dict(a=1,b=2,c=3)
+        
+        print(with_values_keyword_args) # prints {'a': 1, 'b': 2, 'c': 3}
+
+        with_values_iterable = dict([('x', 1), ('y', 2), ('z', 3)])
+
+        print(with_values_iterable) # prints {'x': 1, 'y': 2, 'z': 3}
+        ```
